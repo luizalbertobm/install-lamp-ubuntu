@@ -22,10 +22,11 @@ sudo apt-get install -y mysql-server
 
 echo '==================================='
 echo 'Installing PHP'
-sudo apt-get install -y php libapache2-mod-php php-mysql
+sudo apt-get install -y php libapache2-mod-php
+sudo apt-get install -y php-cli hhvm
 
 #install php modules
-sudo apt-get install -y php-cli php-imagick php-xdebug
+sudo apt-get install -y  php-mysql php-imagick php-xdebug
 
 #configure file order
 echo '==================================='
@@ -39,6 +40,5 @@ sudo sed -i 's/display_errors = Off/display_errors = On/g' /etc/php/7.2/apache2/
 sudo sed -i 's/display_startup_errors = Off/display_startup_errors = On/g' /etc/php/7.2/apache2/php.ini
 
 #restart apache
-#sudo systemctl restart apache2
 sudo service apache2 restart
 sudo service apache2 status
